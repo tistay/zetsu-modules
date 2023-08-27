@@ -1,5 +1,4 @@
 
-<script type='text/javascript'>
     const DefaultLayouts = {
         ultraWideFull: 'ultraWideFull',
         ultraWide: 'ultraWide',
@@ -244,8 +243,7 @@
 
     let output = [];
     let emptyKeyValue = [new KeyValue('Referer', 'https://comick.app/')];
-    let mostViewed = document.querySelectorAll('.navigation-wrapper');
-    mostViewed = mostViewed[1].querySelector('.flex > div').children;
+    let mostViewed = document.querySelectorAll('.navigation-wrapper > .flex > div')[1].children;
     let dataArray = [];
     for(mostViews of mostViewed)    {
         let image = mostViews.querySelector('img').getAttribute('src');
@@ -268,4 +266,3 @@
 
     var finalJson = JSON.stringify(MainPageObject);
     savedData.innerHTML = finalJson;
-</script>
