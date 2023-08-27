@@ -245,6 +245,7 @@
     let output = [];
     let emptyKeyValue = [new KeyValue('Referer', 'https://comick.app/')];
     let mostViewed = document.querySelectorAll('.navigation-wrapper');
+    mostViewed = mostViewed[1].querySelector('.flex > div').children;
     let dataArray = [];
     for(mostViews of mostViewed)    {
         let image = mostViews.querySelector('img').getAttribute('src');
