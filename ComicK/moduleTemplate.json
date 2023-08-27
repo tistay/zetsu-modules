@@ -11,7 +11,7 @@
     "moduleType": "Image",
     "baseURL": "https://comick.app/",
     "moduleDeveloperSite": "https://github.com/tistay/zetsu-modules/README.md",
-    "UpdateSite": "https://github.com/tistay/zetsu-modules/ComicK/moduleTemplate.json",
+    "UpdateSite": "https://raw.githubusercontent.com/tistay/zetsu-modules/main/ComicK/moduleTemplate.json",
     "preferedServer": "",
     "preferedDownloadServer": "",
     "blackListed": [
