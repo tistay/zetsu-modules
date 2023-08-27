@@ -41,7 +41,7 @@
   "mainPage": [
     {
       "request": {
-        "url": "",
+        "url": "https://comick.app",
         "method": "get",
         "headers": [
           {
