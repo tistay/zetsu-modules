@@ -200,18 +200,7 @@
         this.number2 = number2;
     }
 
-    function Data(
-        image,
-        title,
-        description,
-        field1,
-        field2,
-        field3,
-        field4,
-        isChapter,
-        link,
-        openInWebView
-    ) {
+    function Data(image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView) {
         this.image = image;
         this.title = title;
         this.description = description;
@@ -256,7 +245,7 @@
     let output = [];
     let emptyKeyValue = [new KeyValue('', '')];
 
-    let mostViewed = document.querySelectorAll(".navigation-wrapper")[1].querySelector(".flex > div").children;
+    let mostViewed = document.querySelectorAll('.navigation-wrapper')[1].querySelector('.flex > div').children;
     let dataArray = [];
     for(mostViews of mostViewed)    {
         let image = mostViews.querySelector('img').getAttribute('src');
