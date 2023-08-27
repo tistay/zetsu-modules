@@ -1,327 +1,282 @@
-<!DOCTYPE html>
-<html>
-    <body>
-        <div id='gjnchshirm'>
-        </div>
-        <script type='text/javascript'>
-        </script>
-        <script type='text/javascript'>
-            console.everything = [];
-            var ketsuConsoleLogs = [];
-            console.defaultLog = console.log.bind(console);
-            console.log = function () {
-                let data = JSON.stringify(arguments['0'], null, 2);
-                console.everything.push({
-                    type: 'log',
-                    value: data,
-                });
-                ketsuConsoleLogs.push({
-                    type: 'log',
-                    value: data,
-                });
-                console.defaultLog.apply(console, arguments);
-            };
 
-            console.error = function () {
-                let data = JSON.stringify(arguments['0'], null, 2);
-                console.everything.push({
-                    type: 'error',
-                    value: data,
-                });
-                ketsuConsoleLogs.push({
-                    type: 'error',
-                    value: data,
-                });
-                console.defaultLog.apply(console, arguments);
-            };
+<script type='text/javascript'>
+    const DefaultLayouts = {
+        ultraWideFull: 'ultraWideFull',
+        ultraWide: 'ultraWide',
 
-            /*window.onerror = function(err, url, line)
-        {
-                console.everything.push(
-                {
-                        'type': 'error',
-                        'value': String(err)
-                });
-                ketsuConsoleLogs.push(
-                {
-                        'type': 'error',
-                        'value': String(err)
-                });
-                return false
-        };*/
-        </script>
-        <script type='text/javascript'></script>
+        wideFull: 'wideFull',
+        wide: 'wide',
 
-        <script type='text/javascript'>
-            const DefaultLayouts = {
-                ultraWideFull: 'ultraWideFull',
-                ultraWide: 'ultraWide',
+        wideStrechedFull: 'wideStrechedFull',
+        wideStrechedFullDouble: 'WideStrechedFullDouble',
+        wideStreched: 'wideStreched',
+        wideStrechedDouble: 'wideStrechedDouble',
 
-                wideFull: 'wideFull',
-                wide: 'wide',
+        wideStrechedFullList: 'wideStrechedFullList',
+        wideStrechedList: 'wideStrechedList',
 
-                wideStrechedFull: 'wideStrechedFull',
-                wideStrechedFullDouble: 'WideStrechedFullDouble',
-                wideStreched: 'wideStreched',
-                wideStrechedDouble: 'wideStrechedDouble',
+        doublets: 'doublets',
+        doubletsDouble: 'doubletsDouble',
+        doubletsFull: 'doubletsFull',
+        doubletsFullDouble: 'doubletsFullDouble',
 
-                wideStrechedFullList: 'wideStrechedFullList',
-                wideStrechedList: 'wideStrechedList',
+        doubletsConstant: 'doubletsConstant',
+        doubletsDoubleConstant: 'doubletsDoubleConstant',
+        doubletsFullConstant: 'doubletsFullConstant',
+        doubletsFullDoubleConstant: 'doubletsFullDoubleConstant',
 
-                doublets: 'doublets',
-                doubletsDouble: 'doubletsDouble',
-                doubletsFull: 'doubletsFull',
-                doubletsFullDouble: 'doubletsFullDouble',
+        longDoublets: 'longDoublets',
+        longDoubletsDouble: 'longDoubletsDouble',
+        longDoubletsFull: 'longDoubletsFull',
+        longDoubletsFullDouble: 'longDoubletsFullDouble',
 
-                doubletsConstant: 'doubletsConstant',
-                doubletsDoubleConstant: 'doubletsDoubleConstant',
-                doubletsFullConstant: 'doubletsFullConstant',
-                doubletsFullDoubleConstant: 'doubletsFullDoubleConstant',
+        longDoubletsConstant: 'longDoubletsConstant',
+        longDoubletsDoubleConstant: 'longDoubletsDoubleConstant',
+        longDoubletsFullConstant: 'longDoubletsFullConstant',
+        longDoubletsFullDoubleConstant: 'longDoubletsFullDoubleConstant',
 
-                longDoublets: 'longDoublets',
-                longDoubletsDouble: 'longDoubletsDouble',
-                longDoubletsFull: 'longDoubletsFull',
-                longDoubletsFullDouble: 'longDoubletsFullDouble',
+        triplets: 'triplets',
+        tripletsDouble: 'tripletsDouble',
+        tripletsFull: 'tripletsFull',
+        tripletsFullDouble: 'tripletsFullDouble',
 
-                longDoubletsConstant: 'longDoubletsConstant',
-                longDoubletsDoubleConstant: 'longDoubletsDoubleConstant',
-                longDoubletsFullConstant: 'longDoubletsFullConstant',
-                longDoubletsFullDoubleConstant: 'longDoubletsFullDoubleConstant',
+        tripletsConstant: 'tripletsConstant',
+        tripletsDoubleConstant: 'tripletsDoubleConstant',
+        tripletsFullConstant: 'tripletsFullConstant',
+        tripletsFullDoubleConstant: 'tripletsFullDoubleConstant',
 
-                triplets: 'triplets',
-                tripletsDouble: 'tripletsDouble',
-                tripletsFull: 'tripletsFull',
-                tripletsFullDouble: 'tripletsFullDouble',
+        longTriplets: 'longTriplets',
+        longTripletsDouble: 'longTripletsDouble',
+        longTripletsFull: 'longTripletsFull',
+        longTripletsFullDouble: 'longTripletsFullDouble',
 
-                tripletsConstant: 'tripletsConstant',
-                tripletsDoubleConstant: 'tripletsDoubleConstant',
-                tripletsFullConstant: 'tripletsFullConstant',
-                tripletsFullDoubleConstant: 'tripletsFullDoubleConstant',
+        longTripletsConstant: 'longTripletsConstant',
+        longTripletsDoubleConstant: 'longTripletsDoubleConstant',
+        longTripletsFullConstant: 'longTripletsFullConstant',
+        longTripletsFullDoubleConstant: 'longTripletsFullDoubleConstant',
 
-                longTriplets: 'longTriplets',
-                longTripletsDouble: 'longTripletsDouble',
-                longTripletsFull: 'longTripletsFull',
-                longTripletsFullDouble: 'longTripletsFullDouble',
+        none: '',
+    };
 
-                longTripletsConstant: 'longTripletsConstant',
-                longTripletsDoubleConstant: 'longTripletsDoubleConstant',
-                longTripletsFullConstant: 'longTripletsFullConstant',
-                longTripletsFullDoubleConstant: 'longTripletsFullDoubleConstant',
+    const CellDesings = {
+        Special1: 'Special1',
+        Special2: 'Special2',
+        Special3: 'Special3',
+        CELLHelperText: 'CELLHelperText',
 
-                none: '',
-            };
+        small1: 'small1',
+        small2: 'small2',
+        normal1: 'normal1',
+        normal2: 'normal2',
+        normal3: 'normal3',
+        normal4: 'normal4',
+        normal5: 'normal5',
+        normal6: 'normal6',
+        normal7: 'normal7',
 
-            const CellDesings = {
-                Special1: 'Special1',
-                Special2: 'Special2',
-                Special3: 'Special3',
-                CELLHelperText: 'CELLHelperText',
+        wide1: 'wide1',
+        wide2: 'wide2',
+        wide3: 'wide3',
+        wide4: 'wide4',
+        wide5: 'wide5',
+        wide6: 'wide6',
+        wide7: 'wide7',
+        wide8: 'wide8',
+        wide9: 'wide9',
+        wide10: 'wide10',
+        wide11: 'wide11',
+    };
 
-                small1: 'small1',
-                small2: 'small2',
-                normal1: 'normal1',
-                normal2: 'normal2',
-                normal3: 'normal3',
-                normal4: 'normal4',
-                normal5: 'normal5',
-                normal6: 'normal6',
-                normal7: 'normal7',
+    const Paging = {
+        leading: 'leading',
+        centered: 'centered',
+        none: '',
+    };
 
-                wide1: 'wide1',
-                wide2: 'wide2',
-                wide3: 'wide3',
-                wide4: 'wide4',
-                wide5: 'wide5',
-                wide6: 'wide6',
-                wide7: 'wide7',
-                wide8: 'wide8',
-                wide9: 'wide9',
-                wide10: 'wide10',
-                wide11: 'wide11',
-            };
+    const Orientation = {
+        horizontal: 'horizontal',
+        vertical: 'vertical',
+    };
 
-            const Paging = {
-                leading: 'leading',
-                centered: 'centered',
-                none: '',
-            };
+    function MainPage(request, extra, javascriptConfig, output) {
+        this.request = request;
+        this.extra = extra;
+        this.javascriptConfig = javascriptConfig;
+        this.output = output;
+    }
 
-            const Orientation = {
-                horizontal: 'horizontal',
-                vertical: 'vertical',
-            };
+    function ModuleRequest(url, method, headers, httpBody) {
+        this.url = url;
+        this.method = method;
+        this.headers = headers;
+        this.httpBody = httpBody;
+    }
 
-            function MainPage(request, extra, javascriptConfig, output) {
-                this.request = request;
-                this.extra = extra;
-                this.javascriptConfig = javascriptConfig;
-                this.output = output;
-            }
+    function Extra(commands, extraInfo) {
+        this.commands = commands;
+        this.extraInfo = extraInfo;
+    }
 
-            function ModuleRequest(url, method, headers, httpBody) {
-                this.url = url;
-                this.method = method;
-                this.headers = headers;
-                this.httpBody = httpBody;
-            }
+    function Commands(commandName, params) {
+        this.commandName = commandName;
+        this.params = params;
+    }
 
-            function Extra(commands, extraInfo) {
-                this.commands = commands;
-                this.extraInfo = extraInfo;
-            }
+    function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {
+        this.removeJavascript = removeJavascript;
+        this.loadInWebView = loadInWebView;
+        this.javaScript = javaScript;
+    }
 
-            function Commands(commandName, params) {
-                this.commandName = commandName;
-                this.params = params;
-            }
+    function KeyValue(key, value) {
+        this.key = key;
+        this.value = value;
+    }
 
-            function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {
-                this.removeJavascript = removeJavascript;
-                this.loadInWebView = loadInWebView;
-                this.javaScript = javaScript;
-            }
+    function Output(
+        cellDesing,
+        orientation,
+        defaultLayout,
+        paging,
+        section,
+        layout,
+        data
+    ) {
+        this.cellDesing = cellDesing;
+        this.orientation = orientation;
+        this.defaultLayout = defaultLayout;
+        this.paging = paging;
+        this.section = section;
+        this.layout = layout;
+        this.data = data;
+    }
 
-            function KeyValue(key, value) {
-                this.key = key;
-                this.value = value;
-            }
+    function Section(sectionName, separator) {
+        this.sectionName = sectionName;
+        this.separator = separator;
+    }
 
-            function Output(
-                cellDesing,
-                orientation,
-                defaultLayout,
-                paging,
-                section,
-                layout,
-                data
-            ) {
-                this.cellDesing = cellDesing;
-                this.orientation = orientation;
-                this.defaultLayout = defaultLayout;
-                this.paging = paging;
-                this.section = section;
-                this.layout = layout;
-                this.data = data;
-            }
+    function Layout(
+        insets,
+        visibleCellsWidthS,
+        visibleCellsWidthM,
+        visibleCellsWidthL,
+        visibleCellsHeight,
+        heightForVisibleCells,
+        cellSize,
+        ratio,
+        constant,
+        horizontalSpacing,
+        verticalSpacing
+    ) {
+        this.insets = insets;
+        this.visibleCellsWidthS = visibleCellsWidthS;
+        this.visibleCellsWidthM = visibleCellsWidthM;
+        this.visibleCellsWidthL = visibleCellsWidthL;
+        this.visibleCellsHeight = visibleCellsHeight;
+        this.heightForVisibleCells = heightForVisibleCells;
+        this.cellSize = cellSize;
+        this.ratio = ratio;
+        this.constant = constant;
+        this.horizontalSpacing = horizontalSpacing;
+        this.verticalSpacing = verticalSpacing;
+    }
 
-            function Section(sectionName, separator) {
-                this.sectionName = sectionName;
-                this.separator = separator;
-            }
+    function Insets(top, bottom, left, right) {
+        this.top = top;
+        this.bottom = bottom;
+        this.left = left;
+        this.right = right;
+    }
 
-            function Layout(
-                insets,
-                visibleCellsWidthS,
-                visibleCellsWidthM,
-                visibleCellsWidthL,
-                visibleCellsHeight,
-                heightForVisibleCells,
-                cellSize,
-                ratio,
-                constant,
-                horizontalSpacing,
-                verticalSpacing
-            ) {
-                this.insets = insets;
-                this.visibleCellsWidthS = visibleCellsWidthS;
-                this.visibleCellsWidthM = visibleCellsWidthM;
-                this.visibleCellsWidthL = visibleCellsWidthL;
-                this.visibleCellsHeight = visibleCellsHeight;
-                this.heightForVisibleCells = heightForVisibleCells;
-                this.cellSize = cellSize;
-                this.ratio = ratio;
-                this.constant = constant;
-                this.horizontalSpacing = horizontalSpacing;
-                this.verticalSpacing = verticalSpacing;
-            }
+    function Size(width, height) {
+        this.width = width;
+        this.height = height;
+    }
 
-            function Insets(top, bottom, left, right) {
-                this.top = top;
-                this.bottom = bottom;
-                this.left = left;
-                this.right = right;
-            }
+    function Ratio(inRelation, number1, number2) {
+        this.inRelation = inRelation;
+        this.number1 = number1;
+        this.number2 = number2;
+    }
 
-            function Size(width, height) {
-                this.width = width;
-                this.height = height;
-            }
+    function Data(
+        image,
+        title,
+        description,
+        field1,
+        field2,
+        field3,
+        field4,
+        isChapter,
+        link,
+        openInWebView
+    ) {
+        this.image = image;
+        this.title = title;
+        this.description = description;
+        this.field1 = field1;
+        this.field2 = field2;
+        this.field3 = field3;
+        this.field4 = field4;
+        this.isChapter = isChapter;
+        this.link = link;
+        this.openInWebView = openInWebView;
+    }
 
-            function Ratio(inRelation, number1, number2) {
-                this.inRelation = inRelation;
-                this.number1 = number1;
-                this.number2 = number2;
-            }
+    function quickData(link, image, title, field1) {
+        return new Data(
+            image,
+            title,
+            'unknown',
+            field1,
+            'unknown',
+            'unknown',
+            'unknown',
+            false,
+            link
+        );
+    }
 
-            function Data(
-                image,
-                title,
-                description,
-                field1,
-                field2,
-                field3,
-                field4,
-                isChapter,
-                link,
-                openInWebView
-            ) {
-                this.image = image;
-                this.title = title;
-                this.description = description;
-                this.field1 = field1;
-                this.field2 = field2;
-                this.field3 = field3;
-                this.field4 = field4;
-                this.isChapter = isChapter;
-                this.link = link;
-                this.openInWebView = openInWebView;
-            }
+    function shuffle(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
+    }
 
-            function quickData(link, image, title, field1) {
-                return new Data(
-                    image,
-                    title,
-                    'unknown',
-                    field1,
-                    'unknown',
-                    'unknown',
-                    'unknown',
-                    false,
-                    link
-                );
-            }
+    var savedData = document.getElementById('ketsu-final-data');
 
-            function shuffle(a) {
-                var j, x, i;
-                for (i = a.length - 1; i > 0; i--) {
-                    j = Math.floor(Math.random() * (i + 1));
-                    x = a[i];
-                    a[i] = a[j];
-                    a[j] = x;
-                }
-                return a;
-            }
+    var parsedJson = JSON.parse(savedData.innerHTML);
 
-            var savedData = document.getElementById('ketsu-final-data');
+    let output = [];
+    let emptyKeyValue = [new KeyValue('', '')];
 
-            var parsedJson = JSON.parse(savedData.innerHTML);
+    let mostViewed = document.querySelectorAll(".navigation-wrapper")[1].querySelector(".flex > div").children;
+    let dataArray = [];
+    for(mostViews of mostViewed)    {
+        let image = mostViews.querySelector('img').getAttribute('src');
+        let title = mostViews.querySelector('a').getAttribute('title');
+        let link = mostViews.querySelector('a').href;
 
-            let output = [];
-            let emptyKeyValue = [new KeyValue('', '')];
+        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+        dataArray.push(quickData(link, image, title, ''));
+    }
 
-            // Fill the output array with output objects.
-            // Scripts cant use comments so delete them before loading them into KETSU.
-            // add a \ if you are going to use ''
+    output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('', true), null, dataArray));
 
-            let MainPageObject = new MainPage(
-                new ModuleRequest('', 'get', emptyKeyValue, null),
-                new Extra([new Commands('', emptyKeyValue)], emptyKeyValue),
-                new JavascriptConfig(true, false, ''),
-                output
-            );
+    let MainPageObject = new MainPage(
+        new ModuleRequest('', 'get', emptyKeyValue, null),
+        new Extra([new Commands('', emptyKeyValue)], emptyKeyValue),
+        new JavascriptConfig(true, false, ''),
+        output
+    );
 
-            var finalJson = JSON.stringify(MainPageObject);
-            savedData.innerHTML = finalJson;
-        </script>
-    </body>
-</html>
+    var finalJson = JSON.stringify(MainPageObject);
+    savedData.innerHTML = finalJson;
+</script>

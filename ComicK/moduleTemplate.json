@@ -41,7 +41,7 @@
   "mainPage": [
     {
       "request": {
-        "url": "https://api.comick.fun/top",
+        "url": "",
         "method": "get",
         "headers": [
           {
