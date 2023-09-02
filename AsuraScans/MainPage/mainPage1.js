@@ -253,7 +253,7 @@
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
     link = new ModuleRequest(link, 'get', emptyKeyValue, null);
     dataArrayT.push(quickData(link, image, title, ''));
-    output.push(new Output(CellDesings.normal7, Orientation.vertical, DefaultLayouts.longTripletsFullConstant, Paging.leading, new Section('Trending Today', true), null, dataArrayT));
+    output.push(new Output(CellDesings.wide11, Orientation.vertical, DefaultLayouts.longTripletsFullConstant, Paging.leading, new Section('Trending Today', true), null, dataArrayT));
 
     let popularWeek = document.querySelector('#wpop-items > .wpop-weekly').querySelectorAll('li');
     let dataArrayP = [];
@@ -267,7 +267,7 @@
         dataArrayP.push(quickData(link, image, title, ''));
     }
 
-    output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('Popular This Week', true), null, dataArray));
+    output.push(new Output(CellDesings.normal7, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('Popular This Week', true), null, dataArrayP));
     
     let MainPageObject = new MainPage(
         new ModuleRequest("", "get", emptyKeyValue, null),
