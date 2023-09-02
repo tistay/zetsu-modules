@@ -237,12 +237,12 @@
         return a;
     }
 
-    var savedData = document.getElementById("ketsu-final-data");
+    var savedData = document.getElementById('ketsu-final-data');
 
     var parsedJson = JSON.parse(savedData.innerHTML);
 
     let output = [];
-    let emptyKeyValue = [new KeyValue("", "")];
+    let emptyKeyValue = [new KeyValue('Referer', 'https://asuracomics.com/')];
 
     let dataArrayT = [];
     let trending = document.querySelector('.bs')
@@ -269,12 +269,25 @@
 
     output.push(new Output(CellDesings.normal7, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('Popular This Week', true), null, dataArrayP));
     
+    let latest = document.querySelectorAll('.listupd')[1].querySelectorAll('.utao');
+    let dataArrayL = [];
+    for(latest_item of latest)	{
+        let image = latest_item.querySelector('img').getAttribute('src');
+        let title = latest_item.querySelector('a').getAttribute('title');
+        let link = latest_item.querySelector('a').href;
+        
+        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+        dataArrayL.push(quickData(link, image, title, ''));
+    }
+
     let MainPageObject = new MainPage(
-        new ModuleRequest("", "get", emptyKeyValue, null),
-        new Extra([new Commands("", emptyKeyValue)], emptyKeyValue),
-        new JavascriptConfig(true, false, ""),
+        new ModuleRequest('', 'get', emptyKeyValue, null),
+        new Extra([new Commands('', emptyKeyValue)], emptyKeyValue),
+        new JavascriptConfig(true, false, ''),
         output
     );
+    output.push(new Output(CellDesings.normal7, Orientation.vertical, DefaultLayouts.wideFull, Paging.leading, new Section('Popular This Week', true), null, dataArrayL));
 
     var finalJson = JSON.stringify(MainPageObject);
     savedData.innerHTML = finalJson;
