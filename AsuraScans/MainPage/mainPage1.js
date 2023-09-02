@@ -243,8 +243,20 @@
 
     let output = [];
     let emptyKeyValue = [new KeyValue("", "")];
+
+    let dataArrayT = [];
+    let trending = document.querySelector('.bs')
+    let image = trending.querySelector('.limit > img').getAttribute('src');
+    let title = trending.querySelector('a').getAttribute('title');
+    let link = trending.querySelector('a').href;
+
+    image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+    link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+    dataArrayT.push(quickData(link, image, title, ''));
+    output.push(new Output(CellDesings.normal7, Orientation.vertical, DefaultLayouts.longTripletsFullConstant, Paging.leading, new Section('Trending Today', true), null, dataArrayT));
+
     let popularWeek = document.querySelector('#wpop-items > .wpop-weekly').querySelectorAll('li');
-    let dataArray = [];
+    let dataArrayP = [];
     for(popular_itemW of popularWeek)	{
         let image = popular_itemW.querySelector('.series > img').getAttribute('src');
         let title = popular_itemW.querySelector('.leftseries > h2 > .series').innerHTML;
@@ -252,10 +264,10 @@
 
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        dataArray.push(quickData(link, image, title, ''));
+        dataArrayP.push(quickData(link, image, title, ''));
     }
 
-    output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('Popular', true), null, dataArray));
+    output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('Popular This Week', true), null, dataArray));
     
     let MainPageObject = new MainPage(
         new ModuleRequest("", "get", emptyKeyValue, null),
