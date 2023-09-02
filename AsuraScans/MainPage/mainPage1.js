@@ -243,12 +243,12 @@
 
     let output = [];
     let emptyKeyValue = [new KeyValue("", "")];
-    let popular = document.querySelector('.owl-stage-outer').querySelectorAll('.owl-item');
+    let popularWeek = document.querySelector('#wpop-items > .wpop-weekly').querySelectorAll('li');
     let dataArray = [];
-    for(popular_item of popular)	{
-        let image = popular_item.querySelector('.slide-bg > img').getAttribute('src');
-        let title = popular_item.querySelector('.title > .ellipsis > a').innerHTML;
-        let link = popular_item.querySelector('.poster > a').href;
+    for(popular_itemW of popularWeek)	{
+        let image = popular_itemW.querySelector('.series > img').getAttribute('src');
+        let title = popular_itemW.querySelector('.leftseries > h2 > .series').innerHTML;
+        let link = popular_itemW.querySelector('.series').href;
 
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
