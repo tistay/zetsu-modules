@@ -242,18 +242,22 @@
     var parsedJson = JSON.parse(savedData.innerHTML);
 
     let output = [];
-    let emptyKeyValue = [new KeyValue('Referer', 'https://asuracomics.com/')];
+    let emptyKeyValue = [new KeyValue('', '')];
 
     let dataArrayT = [];
-    let trending = document.querySelector('.bs')
-    let image = trending.querySelector('.limit > img').getAttribute('src');
-    let title = trending.querySelector('a').getAttribute('title');
-    let link = trending.querySelector('a').href;
+    let trending = document.querySelectorAll('.bs')
+    for(t of trending)  {
+        let image = t.querySelector('.limit > img').getAttribute('src');
+        let title = t.querySelector('a').getAttribute('title');
+        let link = t.querySelector('a').href;
+        let type = t.querySelector('.type').innerHTML;
 
-    image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-    link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-    dataArrayT.push(quickData(link, image, title, ''));
-    output.push(new Output(CellDesings.wide11, Orientation.vertical, DefaultLayouts.wideFull, Paging.leading, new Section('Trending Today', true), null, dataArrayT));
+        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+        dataArrayT.push(quickData(link, image, title, type));
+    }
+
+    output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.none, Paging.leading, new Section('Trending Today', true), null, dataArrayT));
 
     let popularWeek = document.querySelector('#wpop-items > .wpop-weekly').querySelectorAll('li');
     let dataArrayP = [];
@@ -267,7 +271,7 @@
         dataArrayP.push(quickData(link, image, title, ''));
     }
 
-    output.push(new Output(CellDesings.normal7, Orientation.horizontal, DefaultLayouts.doubletsConstant, Paging.leading, new Section('Popular This Week', true), null, dataArrayP));
+    output.push(new Output(CellDesings.normal5, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading, new Section('Popular This Week', true), null, dataArrayP));
     
     let latest = document.querySelectorAll('.listupd')[1].querySelectorAll('.utao');
     let dataArrayL = [];
@@ -287,7 +291,7 @@
         new JavascriptConfig(true, false, ''),
         output
     );
-    output.push(new Output(CellDesings.normal7, Orientation.vertical, DefaultLayouts.longDoublets, Paging.leading, new Section('Popular This Week', true), null, dataArrayL));
+    output.push(new Output(CellDesings.normal3, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Popular This Week', true), null, dataArrayL));
 
     var finalJson = JSON.stringify(MainPageObject);
     savedData.innerHTML = finalJson;
