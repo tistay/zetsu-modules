@@ -254,10 +254,20 @@
 
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        dataArrayT.push(quickData(link, image, title, type));
+        dataArrayT.push(quickData(link, image, title, "a"));
     }
-
-    output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.none, Paging.leading, new Section('Trending Today', true), null, dataArrayT));
+    output.push(
+        new Output(
+          CellDesings.Special3,
+          Orientation.horizontal,
+          DefaultLayouts.none,
+          Paging.centered,
+          new Section("", false),
+          topLayout,
+          shuffle(dataArray.slice())
+        )
+      );
+    output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.none, Paging.centered, new Section('Trending Today', true), null, dataArrayT));
 
     let popularWeek = document.querySelector('#wpop-items > .wpop-weekly').querySelectorAll('li');
     let dataArrayP = [];
@@ -271,7 +281,7 @@
         dataArrayP.push(quickData(link, image, title, ''));
     }
 
-    output.push(new Output(CellDesings.normal5, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading, new Section('Popular This Week', true), null, dataArrayP));
+    output.push(new Output(CellDesings.special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading, new Section('Popular This Week', true), null, dataArrayP));
     
     let latest = document.querySelectorAll('.listupd')[1].querySelectorAll('.utao');
     let dataArrayL = [];
@@ -291,7 +301,7 @@
         new JavascriptConfig(true, false, ''),
         output
     );
-    output.push(new Output(CellDesings.normal3, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Popular This Week', true), null, dataArrayL));
+    output.push(new Output(CellDesings.normal3, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Recently Updated', true), null, dataArrayL));
 
     var finalJson = JSON.stringify(MainPageObject);
     savedData.innerHTML = finalJson;
