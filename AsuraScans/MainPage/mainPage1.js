@@ -254,19 +254,9 @@
 
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        dataArrayT.push(quickData(link, image, title, "a"));
+        dataArrayT.push(quickData(link, image, title, 'test'));
     }
-    output.push(
-        new Output(
-          CellDesings.Special3,
-          Orientation.horizontal,
-          DefaultLayouts.none,
-          Paging.centered,
-          new Section("", false),
-          topLayout,
-          shuffle(dataArray.slice())
-        )
-      );
+
     output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.none, Paging.centered, new Section('Trending Today', true), null, dataArrayT));
 
     let popularWeek = document.querySelector('#wpop-items > .wpop-weekly').querySelectorAll('li');
