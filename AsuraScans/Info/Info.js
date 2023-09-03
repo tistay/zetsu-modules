@@ -52,36 +52,46 @@
         this.chapters = chapters;
     }
 
+    function getStuff(array, match) {
+        for (var x = 0; x < array.length; x++) {
+            let data = array[x].innerText;
+            if (data.includes(match)) {
+                return data.replace(match, '').trim();
+            }
+        }
+    }
+
+    function getHtmlStuff(array, match) {
+        for (var x = 0; x < array.length; x++) {
+            let data = array[x].innerText;
+            if (data.includes(match)) {
+                return array[x];
+            }
+        }
+    }
+    
     var savedData = document.getElementById('ketsu-final-data');
     var parsedJson = JSON.parse(savedData.innerHTML);
     let emptyKeyValue = [new KeyValue('', '')];
-
-    let title = document.querySelector('.entry-title').textContent.trim();
-    let image = document.querySelector('.summary_image img').src;
-    image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-
-    let type = document.querySelector('div.tsinfo > div:nth-child(2) a').textContent;
-    let status = document.querySelector('div.tsinfo > div:nth-child(1) i').textContent;
-    let genres = [];
+    var episodes = [];
+    var type = document.querySelector('div.tsinfo > div:nth-child(2) a').textContent;
+    var status = document.querySelector('div.tsinfo > div:nth-child(1) i').textContent;
+    var genres = [];
     genres = Array.from(document.querySelectorAll('.wd-full a')).map(g => g.textContent);
-
+    var desc;
     try {
-        var desc = document.querySelector('[itemprop=\"depion\"]').textContent.replaceAll('\n','').trim();
-    }   catch (e) {
-        var desc = 'No description found.';
-    }
-
-    let episodes = [];
-    let chapters = document.querySelector('.clstyle').querySelectorAll('li');
+        desc = document.querySelector('[itemprop=\"depion\"]').textContent.replaceAll('\\n', '').trim();
+    } catch {}
+    var title = document.querySelector('.entry-title').textContent.trim();
+    var image = document.querySelector('.thumb img').src;
+    image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+    var chapters = document.querySelector('.clstyle').querySelectorAll('li');
     for (var i = chapters.length - 1; i >= 0; i--) {
         var element = chapters[i];
         var fixedLink = element.querySelector('a').href;
-        let chapter = new Chapter('Chapter ' + (chapters.length - i), new ModuleRequest(fixedLink, 'get',
-            emptyKeyValue, null), false);
+        let chapter = new Chapter('Chapter ' + (chapters.length - i), new ModuleRequest(fixedLink, 'get', emptyKeyValue, null), false);
         episodes.push(chapter);
     }
-
-    let output = new Output(image, title, parsedJson.request, desc, genres, status, type, '', 'Chapters: ' + episodes.length, episodes);
-    let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), output)
+    let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, type, '', 'Chapters : ' + episodes.length, episodes));
     var finalJson = JSON.stringify(infoPageObject);
     savedData.innerHTML = finalJson;
