@@ -254,7 +254,7 @@
 
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        dataArrayT.push(Data(image, title, '', '', type, '', '', false, link));
+        dataArrayT.push(quickData(link, image, title, ''));
     }
 
     output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.none, Paging.centered, new Section('Trending Today', true), null, dataArrayT));
