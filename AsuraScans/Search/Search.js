@@ -189,13 +189,11 @@
         }
         return a;
     }
-    
+
     var savedData = document.getElementById('ketsu-final-data');
     var parsedJson = JSON.parse(savedData.innerHTML);
     let output = [];
     let emptyKeyValue = [new KeyValue('', '')];
-    var lastAdded = document.querySelector('.listupd').querySelectorAll('.bs');
-    let lastAddedArray = [];
     let data = document.querySelector('.listupd').querySelectorAll('.bs');
     let dataArray = [];
     for(item of data)   {
@@ -212,7 +210,7 @@
     }
 
     var testLayout = new Layout(new Insets(10, 10, 10, 10), 1, 2, 3, 1, 500, new Size(400, 400), new Ratio('width', 4, 11), new Size(0, 0), 10, 10);
-    output.push(new Output(CellDesings.wide8, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section('', false), testLayout, lastAddedArray));
+    output.push(new Output(CellDesings.wide8, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section('', false), testLayout, dataArray));
     let searchPageObject = new Search(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), '', new JavascriptConfig(false, false, ''), output);
     var finalJson = JSON.stringify(searchPageObject);
     savedData.innerHTML = finalJson;
