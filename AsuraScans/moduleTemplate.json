@@ -8,11 +8,11 @@
     "moduleImage": "https://static.wikia.nocookie.net/asurascans/images/e/e6/Site-logo.png/revision/latest?cb=20220502044334",
     "moduleVersion": 1.0,
     "moduleLenguage": "ENG",
-    "changelog": "1.0 - Initial Release.",
+    "changelog":"1.0 - Initial Release.",
     "moduleType": "Image",
-    "baseURL": "https://asuracomics.com/",
+    "baseURL": "https://www.asurascans.com/",
     "moduleDeveloperSite": "https://github.com/tistay/zetsu-modules",
-    "UpdateSite": "https://github.com/tistay/zetsu-modules/blob/main/AsuraScans/moduleTemplate.json",
+    "UpdateSite": "https://raw.githubusercontent.com/tistay/zetsu-modules/main/AsuraScans/moduleTemplate.json",
     "preferedServer": "",
     "preferedDownloadServer": "",
     "blackListed": [
@@ -42,7 +42,7 @@
   "mainPage": [
     {
       "request": {
-        "url": "https://asuracomics.com/",
+        "url": "https://www.asurascans.com/",
         "method": "get",
         "headers": [
           {
@@ -155,7 +155,7 @@
   "search": [
     {
       "request": {
-        "url": "https://asuracomics.com/page/<page>/?s=<searched>",
+        "url": "https://www.asurascans.com/page/<page>/?s=<searched>",
         "method": "get",
         "headers": [
           {
