@@ -193,24 +193,21 @@
     var parsedJson = JSON.parse(savedData.innerHTML);
     let output = [];
     let emptyKeyValue = [new KeyValue('', '')];
-    var data = document.querySelector('.listupd').querySelectorAll('.bs');
-    let dataArray = [];
-    for (var x = 0; x < data.length; x++) {
-        var item = data[x];
-        var image = item.querySelector('img').src;
+    var lastAdded = document.querySelector('.listupd').querySelectorAll('.bs');
+    let lastAddedArray = [];
+    for (var x = 0; x < lastAdded.length; x++) {
+        var last = lastAdded[x];
+        var image = last.querySelector('img').src;
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        let title = item.querySelector('.bsx a').title;
-        var link = item.querySelector('.bsx a').href;
+        let title = last.querySelector('.bsx a').title;
+        var link = last.querySelector('.bsx a').href;
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        let type = item.querySelector('.type').innerHTML;
-        let rating = item.querySelector('.numscore').innerHTML + ' / 10';
-        var lastchap = 'Recent: ' + item.querySelector('.adds .epxs').textContent.replaceAll('\\n', '');
-        let details = lastchap + ' | Rating: ' + rating;
-        let data = new Data(image, title, details, type, '', '', '', false, link);
-        dataArray.push(data);
+        var lastchap = 'Recent: ' + last.querySelector('.adds .epxs').textContent.replaceAll('\\n', '');
+        let data = new Data(image, title, lastchap, 'Manwha', '', '', '', false, link);
+        lastAddedArray.push(data);
     }
     var testLayout = new Layout(new Insets(10, 10, 10, 10), 1, 2, 3, 1, 500, new Size(400, 400), new Ratio('width', 4, 11), new Size(0, 0), 10, 10);
-    output.push(new Output(CellDesings.wide8, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section('', false), testLayout, dataArray));
+    output.push(new Output(CellDesings.wide8, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section('', false), testLayout, lastAddedArray));
     let searchPageObject = new Search(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), '', new JavascriptConfig(false, false, ''), output);
     var finalJson = JSON.stringify(searchPageObject);
     savedData.innerHTML = finalJson;
