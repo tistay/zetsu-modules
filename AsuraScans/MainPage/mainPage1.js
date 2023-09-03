@@ -212,13 +212,13 @@
         this.openInWebView = openInWebView;
     }
 
-    function quickData(link, image, title, field1) {
+    function quickData(link, image, title, field1, field2 = 'unknown', description = 'unknown') {
         return new Data(
             image,
             title,
-            'unknown',
+            description,
             field1,
-            'unknown',
+            field2,
             'unknown',
             'unknown',
             false,
@@ -254,7 +254,7 @@
 
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        dataArrayT.push(quickData(link, image, title, ''));
+        dataArrayT.push(quickData(link, image, '', title, type));
     }
 
     output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.none, Paging.centered, new Section('Trending Today', true), null, dataArrayT));
