@@ -189,26 +189,26 @@
         }
         return a;
     }
-
     var savedData = document.getElementById('ketsu-final-data');
     var parsedJson = JSON.parse(savedData.innerHTML);
     let output = [];
     let emptyKeyValue = [new KeyValue('', '')];
-    let data = document.querySelector('.listupd').querySelectorAll('.bs');
+    var data = document.querySelector('.listupd').querySelectorAll('.bs');
     let dataArray = [];
-    for(item of data)   {
-        let link = item.querySelector('a').href;
-        let image = item.querySelector('img').src;
-        let title = item.querySelector('a').getAttribute('title');
-        let typeR = item.querySelector('.type').innerText.toLowerCase();
-        let type = typeR.charAt(0).toUpperCase() + typeR.slice(1);
-        let lastchap = "Newest: " + item.querySelector('.adds .epxs').textContent.replaceAll('\n','');
-        let rating = "Rating: " + item.querySelector('.numscore').innerHTML + " / 10";
-        let details = lastchap + " | " + rating;
-        let data = new Data(image, title, details, type, '', '', '', false, link)
+    for (var x = 0; x < data.length; x++) {
+        var item = data[x];
+        var image = item.querySelector('img').src;
+        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+        let title = item.querySelector('.bsx a').title;
+        var link = item.querySelector('.bsx a').href;
+        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+        let type = item.querySelector('.type').innerHTML;
+        let rating = item.querySelector('.numscore').innerHTML + ' / 10';
+        var lastchap = 'Recent: ' + item.querySelector('.adds .epxs').textContent.replaceAll('\\n', '');
+        let details = lastchap + ' | Rating: ' + rating;
+        let data = new Data(image, title, details, type, '', '', '', false, link);
         dataArray.push(data);
     }
-
     var testLayout = new Layout(new Insets(10, 10, 10, 10), 1, 2, 3, 1, 500, new Size(400, 400), new Ratio('width', 4, 11), new Size(0, 0), 10, 10);
     output.push(new Output(CellDesings.wide8, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section('', false), testLayout, dataArray));
     let searchPageObject = new Search(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), '', new JavascriptConfig(false, false, ''), output);
