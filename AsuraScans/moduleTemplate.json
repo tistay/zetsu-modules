@@ -155,7 +155,7 @@
   "search": [
     {
       "request": {
-        "url": "https://www.asurascans.com/?s=<searched>",
+        "url": "https://asuracomics.com/?s=<searched>",
         "method": "get",
         "headers": [
           {
