@@ -271,7 +271,7 @@
         dataArrayP.push(quickData(link, image, title, ''));
     }
 
-    output.push(new Output(CellDesings.special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading, new Section('Popular This Week', true), null, dataArrayP));
+    output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading, new Section('Popular This Week', true), null, dataArrayP));
     
     let latest = document.querySelectorAll('.listupd')[1].querySelectorAll('.utao');
     let dataArrayL = [];
