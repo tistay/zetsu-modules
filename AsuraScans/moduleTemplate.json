@@ -154,7 +154,7 @@
   "search": [
     {
       "request": {
-        "url": "https://asuracomics.com/page/<page>/?s=<query>",
+        "url": "https://asuracomics.com/page/<page>/?s=<searched>",
         "method": "get",
         "headers": [
           {
