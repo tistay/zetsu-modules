@@ -6,9 +6,9 @@
     "developer": "tistay",
     "moduleID": "142424748807289",
     "moduleImage": "https://static.wikia.nocookie.net/asurascans/images/e/e6/Site-logo.png/revision/latest?cb=20220502044334",
-    "moduleVersion": 1.1,
+    "moduleVersion": 1.11,
     "moduleLenguage": "ENG",
-    "changelog":"1.1 - Adjusted to new HTML IDs.",
+    "changelog":"1.11 - Adjusted to new HTML IDs.",
     "moduleType": "Image",
     "baseURL": "https://www.asurascans.com/",
     "moduleDeveloperSite": "https://github.com/tistay/zetsu-modules",
@@ -390,7 +390,7 @@
       "javascriptConfig": {
         "removeJavascript": true,
         "loadInWebView": false,
-        "javaScript": "function Chapters(e,t,i,s){this.request=e,this.extra=t,this.javascriptConfig=i,this.output=s}function ModuleRequest(e,t,i,s){this.url=e,this.method=t,this.headers=i,this.httpBody=s}function Extra(e,t){this.commands=e,this.extraInfo=t}function Commands(e,t){this.commandName=e,this.params=t}function JavascriptConfig(e,t,i){this.removeJavascript=e,this.loadInWebView=t,this.javaScript=i}function KeyValue(e,t){this.key=e,this.value=t}function Output(e,t,i){this.videos=e,this.images=t,this.text=i}function Videos(e,t){this.needsResolver=e,this.rawVideo=t}function NeedsResolver(e,t){this.resolverIdentifier=e,this.link=t}function RawVideo(e){this.video=e}function Video(e,t){this.videoQuality=e,this.videoLink=t}function Text(e){this.text=e}for(var output=[],savedData=document.getElementById('ketsu-final-data'),parsedJson=JSON.parse(savedData.innerHTML),emptyKeyValue=[new KeyValue('','')],images=document.querySelectorAll('#readerarea img'),x=1;x<images.length-1;x++){var img=images[x].src;output.push(new ModuleRequest(img,'get',emptyKeyValue,null))}let emptyExtra=new Extra([new Commands('',emptyKeyValue)],emptyKeyValue);var chaptersObject=new Chapters(new ModuleRequest('','',emptyKeyValue,null),emptyExtra,new JavascriptConfig(!1,!1,''),new Output(null,output,null)),finalJson=JSON.stringify(chaptersObject);savedData.innerHTML=finalJson;"
+        "javaScript": "function Chapters(e,t,i,s){this.request=e,this.extra=t,this.javascriptConfig=i,this.output=s}function ModuleRequest(e,t,i,s){this.url=e,this.method=t,this.headers=i,this.httpBody=s}function Extra(e,t){this.commands=e,this.extraInfo=t}function Commands(e,t){this.commandName=e,this.params=t}function JavascriptConfig(e,t,i){this.removeJavascript=e,this.loadInWebView=t,this.javaScript=i}function KeyValue(e,t){this.key=e,this.value=t}function Output(e,t,i){this.videos=e,this.images=t,this.text=i}function Videos(e,t){this.needsResolver=e,this.rawVideo=t}function NeedsResolver(e,t){this.resolverIdentifier=e,this.link=t}function RawVideo(e){this.video=e}function Video(e,t){this.videoQuality=e,this.videoLink=t}function Text(e){this.text=e}for(var output=[],savedData=document.getElementById('ketsu-final-data'),parsedJson=JSON.parse(savedData.innerHTML),emptyKeyValue=[new KeyValue('','')],images=document.querySelectorAll('#readerarea img'),x=0;x<images.length;x++){var img=images[x].src;output.push(new ModuleRequest(img,'get',emptyKeyValue,null))}let emptyExtra=new Extra([new Commands('',emptyKeyValue)],emptyKeyValue);var chaptersObject=new Chapters(new ModuleRequest('','',emptyKeyValue,null),emptyExtra,new JavascriptConfig(!1,!1,''),new Output(null,output,null)),finalJson=JSON.stringify(chaptersObject);savedData.innerHTML=finalJson;"
       },
       "output": {
         "videos": {
