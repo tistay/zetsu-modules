@@ -72,7 +72,7 @@
     var emptyKeyValue = [new KeyValue('', '')];
 
     var images = document.querySelectorAll('#readerarea img');
-    for (var x = 1; x < images.length - 1; x++) {
+    for (var x = 0; x < images.length; x++) {
         var img = images[x].src;
         output.push(new ModuleRequest(img,'get',emptyKeyValue,null));
     }
