@@ -6,9 +6,9 @@
     "developer": "tistay",
     "moduleID": "142424748807289",
     "moduleImage": "https://static.wikia.nocookie.net/asurascans/images/e/e6/Site-logo.png/revision/latest?cb=20220502044334",
-    "moduleVersion": 1.14,
+    "moduleVersion": 1.15,
     "moduleLenguage": "ENG",
-    "changelog":"1.14 - Testing dynamic ID support.",
+    "changelog":"1.15 - Testing dynamic ID support.",
     "moduleType": "Image",
     "baseURL": "https://www.asurascans.com/",
     "moduleDeveloperSite": "https://github.com/tistay/zetsu-modules",
@@ -269,7 +269,7 @@
   "info": [
     {
       "request": {
-        "url": "",
+        "url": "https://asuratoon.com/manga/1908287720-the-heavenly-demon-cant-live-a-normal-life/",
         "method": "get",
         "headers": [
           {
