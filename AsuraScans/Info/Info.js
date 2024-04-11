@@ -1,6 +1,6 @@
     function Info(request, extra, javascriptConfig, output) {
         this.request = request; 
-        console.log(request);
+        console.log(request + '\n');
         this.extra = extra;
         this.javascriptConfig = javascriptConfig;
         this.output = output;
