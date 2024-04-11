@@ -94,6 +94,8 @@
         episodes.push(chapter);
     }
 
+    console.log(episodes);
+
     let infoPageObject = new Info(new ModuleRequest('https://asuratoon.com/manga/1908287720-the-heavenly-demon-cant-live-a-normal-life/', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, type, '', 'Chapters : ' + episodes.length, episodes));
     var finalJson = JSON.stringify(infoPageObject);
     savedData.innerHTML = finalJson;
