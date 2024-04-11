@@ -1,5 +1,6 @@
     function Info(request, extra, javascriptConfig, output) {
-        this.request = request;
+        //this.request = request;
+        this.request = new ModuleRequest('https://asuratoon.com/manga/1908287720-the-heavenly-demon-cant-live-a-normal-life/', '', [new KeyValue('', '')], null);
         this.extra = extra;
         this.javascriptConfig = javascriptConfig;
         this.output = output;
@@ -93,6 +94,7 @@
         let chapter = new Chapter('Chapter ' + (chapters.length - i), new ModuleRequest(fixedLink, 'get', emptyKeyValue, null), false);
         episodes.push(chapter);
     }
+
     let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, type, '', 'Chapters : ' + episodes.length, episodes));
     var finalJson = JSON.stringify(infoPageObject);
     savedData.innerHTML = finalJson;
