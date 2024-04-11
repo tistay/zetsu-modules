@@ -7,6 +7,7 @@
 
     function ModuleRequest(url, method, headers, httpBody) {
         this.url = url;
+        console.log(url);
         this.method = method;
         this.headers = headers;
         this.httpBody = httpBody;
