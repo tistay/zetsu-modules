@@ -1,6 +1,6 @@
 function Info(request, extra, javascriptConfig, output) {
     this.request = request; 
-    console.log(request + ' AHHHHHHHHHHHH SEPERATOR AHHHHHHHHHHHHHHHHHHHHHHHHHH ');
+    console.log(' START SEPERATOR START ' + request + ' AHHHHHHHHHHHH SEPERATOR AHHHHHHHHHHHHHHHHHHHHHHHHHH ');
     this.extra = extra;
     this.javascriptConfig = javascriptConfig;
     this.output = output;
