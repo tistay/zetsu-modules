@@ -8,7 +8,7 @@ function Info(request, extra, javascriptConfig, output) {
 
 function ModuleRequest(url, method, headers, httpBody) {
     this.url = url;
-    console.log(url.value + ' small sep \\n');
+    console.log(url + ' small sep \n');
     this.method = method;
     this.headers = headers;
     this.httpBody = httpBody;
