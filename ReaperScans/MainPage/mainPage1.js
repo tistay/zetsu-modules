@@ -264,7 +264,7 @@
     let dataArrayL = [];
     for(latest_item of latest)	{
         let image = latest_item.querySelector('img').getAttribute('src');
-        let title = latest_item.querySelector('p > a').innerHTML
+        let title = latest_item.querySelector('p > a').innerHTML;
         let link = latest_item.querySelector('a').href;
         
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
