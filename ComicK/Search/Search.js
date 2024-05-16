@@ -216,7 +216,7 @@
     let output = [];
     let emptyKeyValue = [new KeyValue('','')];
 
-    let paramjs = document.querySelector('script').innerText.replace('*/', '').replace('/*', ''); 
+    let paramjs = document.querySelectorAll('script')[3].innerText.replace('*/', '').replace('/*', ''); 
     let data = JSON.parse(paramjs);
     let searchArray = [];
     for(obj of data) {
