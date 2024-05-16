@@ -216,11 +216,21 @@
     let output = [];
     let emptyKeyValue = [new KeyValue('','')];
 
-    // Fill the output array with output objects.
-    // Scripts cant use comments so delete them before loading them into KETSU.
-    // add a \ if you are going to use ""
+    let paramjs = document.querySelector('script').innerText.replace('*/', '').replace('/*', ''); 
+    let data = JSON.parse(paramjs);
+    let searchArray = [];
+    for(obj of data) {
+        let image = 'https://meo2.comick.pictures/' + obj.md_covers[0].b2key;
+        let title = obj.title;
+        let link = 'https://comick.io/comic/' + obj.slug;
 
-    let searchPageObject = new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''),output);
+        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+        searchArray.push(quickData(link,image,title,''));
+    }
+    var testLayout = new Layout(new Insets(10, 10, 10, 10), 1, 2, 3, 1, 500, new Size(400, 400), new Ratio('width', 4, 11), new Size(0, 0), 10, 10);
+    output.push(new Output(CellDesings.wide8, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section('', false), testLayout, lastAddedArray));
+    let searchPageObject = new Search(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), '', new JavascriptConfig(false, false, ''), output);
 
     var finalJson = JSON.stringify(searchPageObject);
     savedData.innerHTML = finalJson;
