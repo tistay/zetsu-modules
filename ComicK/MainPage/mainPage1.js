@@ -243,19 +243,22 @@
 
     let output = [];
     let emptyKeyValue = [new KeyValue('Referer', 'https://comick.app/')];
-    let mostViewed = document.querySelectorAll('.navigation-wrapper > .flex > div')[1].children;
-    let dataArray = [];
-    for(mostViews of mostViewed)    {
-        let image = mostViews.querySelector('img').getAttribute('src');
-        let title = mostViews.querySelector('a').getAttribute('title');
-        let link = mostViews.querySelector('a').href;
+    
+    let rawJson = document.querySelector('#__NEXT_DATA__').innerHTML;
+    let json = JSON.parse(rawJson);
+    let data = json.props.pageProps.data;
+    let trendingWeek = data.topFollowComics[7];
+    for(i = 0; i < 10; i++) {
+        let image = 'https://meo2.comick.pictures/' + trendingWeek[i].md_covers[0].b2key;
+        let title = trendingWeek[i].title;
+        let link = 'https://comick.io/comic/' + trendingWeek[i].slug;
 
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        dataArray.push(quickData(link, image, title, ''));
+        dataArrayP.push(quickData(link, image, title, ''));
     }
 
-    output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('', true), null, dataArray));
+    output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading, new Section('Trending This Week', true), null, dataArrayP));
 
     let MainPageObject = new MainPage(
         new ModuleRequest('', 'get', emptyKeyValue, null),
