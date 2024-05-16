@@ -6,8 +6,9 @@
     "developer": "tistay",
     "moduleID": "830203708875317",
     "moduleImage": "https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/202562/unicorn-512.png",
-    "moduleVersion": 1.0,
+    "moduleVersion": 1.01,
     "moduleLenguage": "ENG",
+    "changelog":"1.01 - API.",
     "moduleType": "Image",
     "baseURL": "https://comick.app/",
     "moduleDeveloperSite": "https://github.com/tistay/zetsu-modules/README.md",
@@ -41,7 +42,7 @@
   "mainPage": [
     {
       "request": {
-        "url": "https://comick.io/home",
+        "url": "https://api.comick.fun/top",
         "method": "get",
         "headers": [
           {
@@ -155,7 +156,7 @@
   "search": [
     {
       "request": {
-        "url": "https://comick.io/search?q=<searched>",
+        "url": "https://api.comick.fun/v1.0/search/?q=<searched>",
         "method": "get",
         "headers": [
           {
