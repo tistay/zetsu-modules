@@ -244,21 +244,6 @@
     let output = [];
     let emptyKeyValue = [new KeyValue('', '')];
 
-    let dataArrayT = [];
-    let trending = document.querySelectorAll('.bs')
-    for(t of trending)  {
-        let image = t.querySelector('.limit > img').getAttribute('src');
-        let title = t.querySelector('a').getAttribute('title');
-        let link = t.querySelector('a').href;
-        let type = t.querySelector('.type').innerHTML;
-
-        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        dataArrayT.push(quickData(link, image, '', title, type));
-    }
-
-    output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.none, Paging.centered, new Section('Today\'s Picks', true), null, dataArrayT));
-
     let popularWeek = document.querySelector('ul.grid').querySelectorAll('li');
     let dataArrayP = [];
     for(popular_itemW of popularWeek)	{
@@ -273,7 +258,7 @@
         }
     }
 
-    output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading, new Section('Popular This Week', true), null, dataArrayP));
+    output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading, new Section('Today\'s Picks', true), null, dataArrayP));
     
     let latest = document.querySelectorAll('.space-y-4')[1].querySelector('div.grid').querySelectorAll('div.relative.flex');
     let dataArrayL = [];
