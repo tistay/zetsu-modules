@@ -2,17 +2,17 @@
   "moduleInfo": {
     "moduleName": "Asura Scans",
     "moduleInitials": "AS",
-    "moduleDesc": "A module to read manwha and manhua from Asura Scans.",
+    "moduleDesc": "A module to read manwha and manhua from Reaper Scans.",
     "developer": "tistay",
     "moduleID": "142424748807289",
-    "moduleImage": "https://static.wikia.nocookie.net/asurascans/images/e/e6/Site-logo.png/revision/latest?cb=20220502044334",
-    "moduleVersion": 1.18,
+    "moduleImage": "https://storage.ko-fi.com/cdn/useruploads/tiny_26f3a62a-3b95-4279-b4e4-f3eae5901817.png",
+    "moduleVersion": 1.0,
     "moduleLenguage": "ENG",
-    "changelog":"1.18 - Testing dynamic ID support.",
+    "changelog":"1.0 - Initial version.",
     "moduleType": "Image",
-    "baseURL": "https://www.asurascans.com/",
+    "baseURL": "https://reaperscans.com/",
     "moduleDeveloperSite": "https://github.com/tistay/zetsu-modules",
-    "UpdateSite": "https://raw.githubusercontent.com/tistay/zetsu-modules/main/AsuraScans/moduleTemplate.json",
+    "UpdateSite": "https://raw.githubusercontent.com/tistay/zetsu-modules/main/ReaperScans/moduleTemplate.json",
     "preferedServer": "",
     "preferedDownloadServer": "",
     "blackListed": [
@@ -42,7 +42,7 @@
   "mainPage": [
     {
       "request": {
-        "url": "https://www.asurascans.com/",
+        "url": "https://reaperscans.com/",
         "method": "get",
         "headers": [
           {
