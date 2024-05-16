@@ -257,27 +257,29 @@
         dataArrayT.push(quickData(link, image, '', title, type));
     }
 
-    output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.none, Paging.centered, new Section('Trending Today', true), null, dataArrayT));
+    output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.none, Paging.centered, new Section('Today\'s Picks', true), null, dataArrayT));
 
-    let popularWeek = document.querySelector('#wpop-items > .wpop-weekly').querySelectorAll('li');
+    let popularWeek = document.querySelector('ul.grid').querySelectorAll('li');
     let dataArrayP = [];
     for(popular_itemW of popularWeek)	{
-        let image = popular_itemW.querySelector('.series > img').getAttribute('src');
-        let title = popular_itemW.querySelector('.leftseries > h2 > .series').innerHTML;
-        let link = popular_itemW.querySelector('.series').href;
+        if(popular_itemW.querySelector('span').innerHTML.includes('Comic')) {
+            let image = popular_itemW.querySelector('img').getAttribute('src');
+            let title = popular_itemW.querySelector('a.my-2').innerHTML;
+            let link = popular_itemW.querySelector('a.my-2').href;
 
-        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        dataArrayP.push(quickData(link, image, title, ''));
+            image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+            link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+            dataArrayP.push(quickData(link, image, title, ''));
+        }
     }
 
     output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading, new Section('Popular This Week', true), null, dataArrayP));
     
-    let latest = document.querySelectorAll('.listupd')[1].querySelectorAll('.utao');
+    let latest = document.querySelectorAll('.space-y-4')[1].querySelector('div.grid').querySelectorAll('div.relative.flex');
     let dataArrayL = [];
     for(latest_item of latest)	{
         let image = latest_item.querySelector('img').getAttribute('src');
-        let title = latest_item.querySelector('a').getAttribute('title');
+        let title = latest_item.querySelector('p > a').innerHTML
         let link = latest_item.querySelector('a').href;
         
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
@@ -291,7 +293,7 @@
         new JavascriptConfig(true, false, ''),
         output
     );
-    output.push(new Output(CellDesings.normal3, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Recently Updated', true), null, dataArrayL));
+    output.push(new Output(CellDesings.normal3, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Latest Comics', true), null, dataArrayL));
 
     var finalJson = JSON.stringify(MainPageObject);
     savedData.innerHTML = finalJson;
