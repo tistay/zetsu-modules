@@ -1,10 +1,10 @@
 {
   "moduleInfo": {
-    "moduleName": "Asura Scans",
-    "moduleInitials": "AS",
+    "moduleName": "Reaper Scans",
+    "moduleInitials": "RS",
     "moduleDesc": "A module to read manwha and manhua from Reaper Scans.",
     "developer": "tistay",
-    "moduleID": "142424748807289",
+    "moduleID": "142424748807290",
     "moduleImage": "https://storage.ko-fi.com/cdn/useruploads/tiny_26f3a62a-3b95-4279-b4e4-f3eae5901817.png",
     "moduleVersion": 1.0,
     "moduleLenguage": "ENG",
