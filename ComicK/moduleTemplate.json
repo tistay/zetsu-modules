@@ -155,7 +155,7 @@
   "search": [
     {
       "request": {
-        "url": "",
+        "url": "https://comick.io/search?q=<searched>",
         "method": "get",
         "headers": [
           {
@@ -165,7 +165,7 @@
         ],
         "httpBody": null
       },
-      "separator": "",
+      "separator": "+",
       "extra": {
         "commands": [
           {

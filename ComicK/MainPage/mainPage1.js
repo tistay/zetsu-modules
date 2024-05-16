@@ -242,7 +242,7 @@
     var parsedJson = JSON.parse(savedData.innerHTML);
 
     let output = [];
-    let emptyKeyValue = [new KeyValue('Referer', 'https://comick.app/')];
+    let emptyKeyValue = [new KeyValue('', '')];
     
     let rawJson = document.querySelector('#__NEXT_DATA__').innerHTML;
     let json = JSON.parse(rawJson);

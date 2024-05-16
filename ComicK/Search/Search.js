@@ -1,8 +1,4 @@
-
-
-    <script type="text/javascript">
-
-const DefaultLayouts = {
+    const DefaultLayouts = {
          ultraWideFull : 'ultraWideFull',
          ultraWide : 'ultraWide',
     
@@ -228,5 +224,3 @@ const DefaultLayouts = {
 
     var finalJson = JSON.stringify(searchPageObject);
     savedData.innerHTML = finalJson;
-    </script>
- 
