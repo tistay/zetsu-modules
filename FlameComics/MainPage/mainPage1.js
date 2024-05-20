@@ -250,7 +250,7 @@
         let image = t.querySelector('img').getAttribute('src');
         let title = t.querySelector('a').getAttribute('title');
         let link = t.querySelector('a').href;
-        let status = x[0].querySelector('.status').querySelector('i').innerHTML
+        let status = t.querySelector('.status').querySelector('i').innerHTML;
 
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
