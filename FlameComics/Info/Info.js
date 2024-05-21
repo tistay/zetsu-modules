@@ -81,7 +81,7 @@ var genres = [];
 genres = Array.from(document.querySelectorAll('.wd-full a')).map(g => g.textContent);
 var desc;
 try {
-    desc = document.querySelector('[itemprop=\"description\"]').querySelector('p').textContent;
+    desc = document.querySelector('[itemprop=\"depion\"]').textContent.replaceAll('\\n', '').trim();
 } catch {}
 var title = document.querySelector('.entry-title').textContent.trim();
 var image = document.querySelector('.thumb img').src;
