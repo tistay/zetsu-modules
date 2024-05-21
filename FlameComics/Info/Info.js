@@ -1,6 +1,5 @@
 function Info(request, extra, javascriptConfig, output) {
     this.request = request; 
-    console.log(' START SEPERATOR START ' + request + ' AHHHHHHHHHHHH SEPERATOR AHHHHHHHHHHHHHHHHHHHHHHHHHH ');
     this.extra = extra;
     this.javascriptConfig = javascriptConfig;
     this.output = output;
@@ -76,26 +75,24 @@ var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 let emptyKeyValue = [new KeyValue('', '')];
 var episodes = [];
-var type = document.querySelector('div.tsinfo > div:nth-child(2) a').textContent;
-var status = document.querySelector('div.tsinfo > div:nth-child(1) i').textContent;
+var type = document.querySelector('div.tsinfo > div:nth-child(1) i').textContent;
+var status = document.querySelector('div.tsinfo > div:nth-child(2) i').textContent;
 var genres = [];
 genres = Array.from(document.querySelectorAll('.wd-full a')).map(g => g.textContent);
 var desc;
 try {
-    desc = document.querySelector('[itemprop=\"depion\"]').textContent.replaceAll('\\n', '').trim();
+    desc = document.querySelector('[itemprop=\"description\"]').querySelector('p').textContent;
 } catch {}
 var title = document.querySelector('.entry-title').textContent.trim();
 var image = document.querySelector('.thumb img').src;
 image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-var chapters = document.querySelector('.clstyle').querySelectorAll('li');
+var chapters = document.querySelector('#chapterlist').querySelectorAll('li');
 for (var i = chapters.length - 1; i >= 0; i--) {
     var element = chapters[i];
     var fixedLink = element.querySelector('a').href;
     let chapter = new Chapter('Chapter ' + (chapters.length - i), new ModuleRequest(fixedLink, 'get', emptyKeyValue, null), false);
     episodes.push(chapter);
 }
-
-console.log('Check');
 
 let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, type, '', 'Chapters : ' + episodes.length, episodes));
 var finalJson = JSON.stringify(infoPageObject);
