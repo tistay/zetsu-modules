@@ -87,6 +87,7 @@ var title = document.querySelector('.entry-title').textContent.trim();
 var image = document.querySelector('.thumb img').src;
 image = new ModuleRequest(image, 'get', emptyKeyValue, null);
 var chapters = document.querySelector('#chapterlist').querySelectorAll('li');
+let chapteramount = chapters[chapters.length - 1].querySelector('.chapternum').textContent.match(/(\d+)/)[0]
 for (var i = chapters.length - 1; i >= 0; i--) {
     var element = chapters[i];
     var fixedLink = element.querySelector('a').href;
@@ -94,6 +95,6 @@ for (var i = chapters.length - 1; i >= 0; i--) {
     episodes.push(chapter);
 }
 
-let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, type, '', 'Chapters : ' + episodes.length, episodes));
+let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, type, '', 'Chapters : ' + chapteramount, episodes));
 var finalJson = JSON.stringify(infoPageObject);
 savedData.innerHTML = finalJson;
