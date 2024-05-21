@@ -90,7 +90,7 @@ var chapters = document.querySelector('#chapterlist').querySelectorAll('li');
 for (var i = chapters.length - 1; i >= 0; i--) {
     var element = chapters[i];
     var fixedLink = element.querySelector('a').href;
-    let chapter = new Chapter(element.querySelector('.chapternum').textContent.replaceAll('\t', '').replaceAll('\n', ''), new ModuleRequest(fixedLink, 'get', emptyKeyValue, null), false);
+    let chapter = new Chapter(element.querySelector('.chapternum').textContent.trim(), new ModuleRequest(fixedLink, 'get', emptyKeyValue, null), false);
     episodes.push(chapter);
 }
 
