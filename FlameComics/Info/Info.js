@@ -87,7 +87,7 @@ var title = document.querySelector('.entry-title').textContent.trim();
 var image = document.querySelector('.thumb img').src;
 image = new ModuleRequest(image, 'get', emptyKeyValue, null);
 var chapters = document.querySelector('#chapterlist').querySelectorAll('li');
-let chapteramount = chapters[chapters.length - 1].querySelector('.chapternum').textContent.match(/(\d+)/)[0];
+let chapteramount = chapters[0].getAttribute('data-num');
 for (var i = chapters.length - 1; i >= 0; i--) {
     var element = chapters[i];
     var fixedLink = element.querySelector('a').href;
