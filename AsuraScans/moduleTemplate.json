@@ -9,11 +9,11 @@ as
     "developer": "tistay",
     "moduleID": "142424748807289",
     "moduleImage": "https://static.wikia.nocookie.net/asurascans/images/e/e6/Site-logo.png/revision/latest?cb=20220502044334",
-    "moduleVersion": 1.18,
+    "moduleVersion": 1.19,
     "moduleLenguage": "ENG",
-    "changelog":"1.18 - Testing dynamic ID support.",
+    "changelog":"1.19 - Adjusted domain URLs.",
     "moduleType": "Image",
-    "baseURL": "https://www.asurascans.com/",
+    "baseURL": "https://www.asuratoon.net/",
     "moduleDeveloperSite": "https://github.com/tistay/zetsu-modules",
     "UpdateSite": "https://raw.githubusercontent.com/tistay/zetsu-modules/main/AsuraScans/moduleTemplate.json",
     "preferedServer": "",
@@ -45,7 +45,7 @@ as
   "mainPage": [
     {
       "request": {
-        "url": "https://www.asurascans.com/",
+        "url": "https://www.asuratoon.net/",
         "method": "get",
         "headers": [
           {
@@ -158,7 +158,7 @@ as
   "search": [
     {
       "request": {
-        "url": "https://asuracomics.com/?s=<searched>",
+        "url": "https://asuratoon.net/?s=<searched>&post_type=wp-manga",
         "method": "get",
         "headers": [
           {
